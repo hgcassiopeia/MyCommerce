@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = (props) => {
+    const {creatorName, creatorMail} = props
     return (
-        <div>Footer</div>
+        <div>Powered By : {creatorName} | Created By : {creatorMail}</div>
     )
 }
 
