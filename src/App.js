@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import ProductItem from './feature/product/ProductItem';
+import './App.css';
 
 class App extends Component {
   render() {
