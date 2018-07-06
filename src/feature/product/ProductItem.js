@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const ProductItem = (props) => {
-    const {productName, unitPrice} = props
-    return (
-        <div>
-            <p>Product : {productName}</p>
-            <p>Price : {unitPrice}</p>
-        </div>
-    )
+class ProductItem extends Component{
+
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        const {productName, unitPrice} = this.props
+
+        return(
+            <div>
+                <p>Product : {productName}</p>
+                <p>Price : {unitPrice}</p>
+            </div>
+        )
+    }
 }
 
 export default ProductItem;
