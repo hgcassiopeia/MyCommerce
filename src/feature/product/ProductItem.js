@@ -7,12 +7,16 @@ class ProductItem extends Component{
     }
 
     render(){
-        const {productName, unitPrice} = this.props
+        const {productName, unitPrice, thumbnail} = this.props
+        const reSizeImg = {height: 150}
 
         return(
-            <div>
-                <p>Product : {productName}</p>
-                <p>Price : {unitPrice}</p>
+            <div className="col-md-3 col-sm-6">
+                <img className="img-fluid img-thumbnail" src={thumbnail} style={reSizeImg} />
+                <h5 className="mt-2">{productName}</h5>
+                <p className="title text-right text-muted">{unitPrice} THB</p>
+                <button className="btn btn-block btn-secondary title">Buy</button>
+                <hr/>
             </div>
         )
     }
