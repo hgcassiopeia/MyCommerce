@@ -7,7 +7,7 @@ class ProductItem extends Component{
     }
 
     render(){
-        const {productName, unitPrice, thumbnail} = this.props
+        const {productName, unitPrice, thumbnail} = this.props.product
         const reSizeImg = {height: 200}
 
         return(
@@ -15,7 +15,7 @@ class ProductItem extends Component{
                 <img className="img-fluid img-thumbnail" src={thumbnail} style={reSizeImg} />
                 <h5 className="mt-2">{productName}</h5>
                 <p className="title text-right text-muted">{unitPrice} THB</p>
-                <button className="btn btn-block btn-secondary title" value={unitPrice} onClick={(e)=>console.log(e.target.value)}>Buy</button>
+                <button className="btn btn-block btn-secondary title" onClick={() => this.props.onAddOrder(this.props.product)}>Buy</button>
                 <hr/>
             </div>
         )
