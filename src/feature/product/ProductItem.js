@@ -8,7 +8,7 @@ class ProductItem extends Component{
 
     render(){
         const {productName, unitPrice, thumbnail} = this.props
-        const reSizeImg = {height: 150}
+        const reSizeImg = {height: 200}
 
         return(
             <div className="col-md-3 col-sm-6">
