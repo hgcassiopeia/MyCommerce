@@ -8,6 +8,7 @@ class Monitor extends Component{
         super(props)
         this.state = { totalPrice: 0, orders: [] }
         this.addOrder = this.addOrder.bind(this)
+        this.delOrder = this.delOrder.bind(this)
     }
 
     addOrder(product){
@@ -21,6 +22,13 @@ class Monitor extends Component{
         this.setState({totalPrice:totalPrice, orders: this.state.orders})
     }
 
+    delOrder(product){
+        let findOrder = this.state.orders.find(order => order.product.productId == product.productId)
+        let result = this.state.orders.filter(order => order.product.productId != product.productId)
+        const totalPrice = this.state.totalPrice - (findOrder.quantity * parseInt(findOrder.product.unitPrice))
+        this.setState({totalPrice:totalPrice,orders:result})
+    }
+
     render(){
         return(
             <div className="container-fluid">
@@ -29,7 +37,7 @@ class Monitor extends Component{
                         <ProductList products={this.props.products} onAddOrder={this.addOrder} />
                     </div>
                     <div className="col-md-3">
-                        <Calcualtor totalPrice={this.state.totalPrice} orders={this.state.orders} />
+                        <Calcualtor totalPrice={this.state.totalPrice} orders={this.state.orders} onDelOrder={this.delOrder} />
                     </div>
                 </div>
             </div>
